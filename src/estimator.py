@@ -1,17 +1,17 @@
 import math
-covid = {
-    'region': {
-        'name': "Africa",
-        'avgAge': 19.7,
-        'avgDailyIncomeInUSD': 5,
-        'avgDailyIncomePopulation': 0.71
-    },
-    'periodType': "days",
-    'timeToElapse': 2,
-    'reportedCases': 674,
-    'population': 66622705,
-    'totalHospitalBeds': 1380614
-}
+# covid = {
+#     'region': {
+#         'name': "Africa",
+#         'avgAge': 19.7,
+#         'avgDailyIncomeInUSD': 5,
+#         'avgDailyIncomePopulation': 0.71
+#     },
+#     'periodType': "days",
+#     'timeToElapse': 2,
+#     'reportedCases': 674,
+#     'population': 66622705,
+#     'totalHospitalBeds': 1380614
+# }
 
 
 def estimator(data):
@@ -51,8 +51,8 @@ def estimator(data):
                          'casesForICUByRequestedTime': math.trunc(s_icu),
                          'casesForVentilatorsByRequestedTime': math.trunc(s_rep),
                          'dollarsInFlight': math.trunc(s_dif)}}
-    print(data)
+    # print(data)
     return data
 
 
-estimator(covid)
+# estimator(covid)
