@@ -41,7 +41,6 @@ def estimator(data):
         print(w)
         s_ibrt = math.trunc(s_ci*2**w)
         i_ibrt = math.trunc(i_ci*2**w)
-    s_ibrt = math.trunc(s_ci*2**10)
     i_scbrt = math.trunc(i_ibrt*1.15)
     s_scbrt = math.trunc(s_ibrt*1.15)
     beds = math.trunc(data['totalHospitalBeds']*0.35)
