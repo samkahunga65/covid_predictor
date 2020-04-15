@@ -1,17 +1,17 @@
 import math
-# covid = {
-#     'region': {
-#         'name': "Africa",
-#         'avgAge': 19.7,
-#         'avgDailyIncomeInUSD': 5,
-#         'avgDailyIncomePopulation': 0.71
-#     },
-#     'periodType': "weeks",
-#     'timeToElapse': 2,
-#     'reportedCases': 674,
-#     'population': 66622705,
-#     'totalHospitalBeds': 1380614
-# }
+covid = {
+    'region': {
+        'name': "Africa",
+        'avgAge': 19.7,
+        'avgDailyIncomeInUSD': 5,
+        'avgDailyIncomePopulation': 0.71
+    },
+    'periodType': "month",
+    'timeToElapse': 2,
+    'reportedCases': 674,
+    'population': 66622705,
+    'totalHospitalBeds': 1380614
+}
 
 
 def estimator(data):
@@ -24,16 +24,23 @@ def estimator(data):
     s_ibrtd = math.trunc(i_ci*1.6)
     s_ibrtw = math.trunc(i_ci*5.6)
     if data['periodType'] == 'days':
-        s_ibrtm = math.trunc(i_ci*2**(data["timeToElapse"]/3))
+        s_ibrt = math.trunc(s_ci*2**(data["timeToElapse"]/3))
         i_ibrt = math.trunc(i_ci*2**(data["timeToElapse"]/3))
     elif data['periodType'] == 'weeks':
         v = data["timeToElapse"] * 7
-        s_ibrtm = math.trunc(i_ci*2**(v/3))
+        print(v)
+        s_ibrt = math.trunc(s_ci*2**(v/3))
         i_ibrt = math.trunc(i_ci*2**(v/3))
+    elif data['periodType'] == 'months':
+        qwe = data["timeToElapse"] * 30
+        print(qwe)
+        s_ibrt = math.trunc(s_ci*2**(qwe/3))
+        i_ibrt = math.trunc(i_ci*2**(qwe/3))
     else:
-        w = data["timeToElapse"] * 30
-        s_ibrtm = math.trunc(i_ci*2**(w/3))
-        i_ibrt = math.trunc(i_ci*2**(w/3))
+        w = data["timeToElapse"] * 0
+        print(w)
+        s_ibrt = math.trunc(s_ci*2**w)
+        i_ibrt = math.trunc(i_ci*2**w)
     s_ibrt = math.trunc(s_ci*2**10)
     i_scbrt = math.trunc(i_ibrt*1.15)
     s_scbrt = math.trunc(s_ibrt*1.15)
@@ -64,4 +71,4 @@ def estimator(data):
     return data
 
 
-# print(estimator(covid))
+print(estimator(covid))
