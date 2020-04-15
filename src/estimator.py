@@ -1,17 +1,17 @@
 import math
-# covid = {
-#     'region': {
-#         'name': "Africa",
-#         'avgAge': 19.7,
-#         'avgDailyIncomeInUSD': 5,
-#         'avgDailyIncomePopulation': 0.71
-#     },
-#     'periodType': "weeks",
-#     'timeToElapse': 3,
-#     'reportedCases': 1,
-#     'population': 66622705,
-#     'totalHospitalBeds': 1380614
-# }
+covid = {
+    'region': {
+        'name': "Africa",
+        'avgAge': 19.7,
+        'avgDailyIncomeInUSD': 5,
+        'avgDailyIncomePopulation': 0.71
+    },
+    'periodType': "weeks",
+    'timeToElapse': 3,
+    'reportedCases': 1,
+    'population': 66622705,
+    'totalHospitalBeds': 1380614
+}
 
 
 def estimator(data):
@@ -53,32 +53,24 @@ def estimator(data):
                         ['avgDailyIncomePopulation']*data['timeToElapse']*s_ibrt))
     data = {
         'data': o_data,
-        'impact': {'currentlyInfected': i_ci, 'infectionsByRequestedTime': i_ibrt,
-                   'severeCasesByRequestedTime': i_scbrt, 'hospitalBedsByRequestedTime': i_hbrt,
-                   'casesForICUByRequestedTime': i_icu,
-                   'casesForVentilatorsByRequestedTime': i_rep,
-                   'dollarsInFlight': i_dif},
-        "severeImpact": {'currentlyInfected': s_ci, 'infectionsByRequestedTime': s_ibrt,
-                         'severeCasesByRequestedTime': s_scbrt, 'hospitalBedsByRequestedTime': s_hbrt,
-                         'casesForICUByRequestedTime': s_icu,
-                         'casesForVentilatorsByRequestedTime': s_rep,
-                         'dollarsInFlight': s_dif}}
+        'impact': {'currentlyInfected': i_ci, 'infectionsByRequestedTime': i_ibrt},
+        "severeImpact": {'currentlyInfected': s_ci, 'infectionsByRequestedTime': s_ibrt
+                         }}
     # print(data)
     # data = {
     #     'data': o_data,
-    #     'impact': [{'currentlyInfected': i_ci}, {'infectionsByRequestedTime': i_ibrt},
-    #                {'severeCasesByRequestedTime': i_scbrt}, {
-    #                    'hospitalBedsByRequestedTime': i_hbrt},
-    #                {'casesForICUByRequestedTime': i_icu},
-    #                {'casesForVentilatorsByRequestedTime': i_rep},
-    #                {'dollarsInFlight': i_dif}],
-    #     "severeImpact": [{'currentlyInfected': s_ci}, {'infectionsByRequestedTime': s_ibrt},
-    #                      {'severeCasesByRequestedTime': s_scbrt}, {
-    #                          'hospitalBedsByRequestedTime': s_hbrt},
-    #                      {'casesForICUByRequestedTime': s_icu},
-    #                      {'casesForVentilatorsByRequestedTime': s_rep},
-    #                      {'dollarsInFlight': s_dif}]}
+    #     'impact': {'currentlyInfected': i_ci, 'infectionsByRequestedTime': i_ibrt,
+    #                'severeCasesByRequestedTime': i_scbrt, 'hospitalBedsByRequestedTime': i_hbrt,
+    #                'casesForICUByRequestedTime': i_icu,
+    #                'casesForVentilatorsByRequestedTime': i_rep,
+    #                'dollarsInFlight': i_dif},
+    #     "severeImpact": {'currentlyInfected': s_ci, 'infectionsByRequestedTime': s_ibrt,
+    #                      'severeCasesByRequestedTime': s_scbrt, 'hospitalBedsByRequestedTime': s_hbrt,
+    #                      'casesForICUByRequestedTime': s_icu,
+    #                      'casesForVentilatorsByRequestedTime': s_rep,
+    #                      'dollarsInFlight': s_dif}}
+
     return data
 
 
-# print(estimator(covid)['severeImpact']['casesForICUByRequestedTime'])
+print(estimator(covid))
